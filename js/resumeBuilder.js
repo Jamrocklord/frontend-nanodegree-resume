@@ -11,15 +11,8 @@ var bio ={
   "name": name,
   "age": 17,
   "role": role,
-  "skills": skills
+  "skills": skills,
 };
-var contact_info= {
-      "Address": "226 Creek Path Ave. Oakville, ON, Canada",
-      "Postal Code": "L6L-6T5",
-      "Phone Number": "(416)371-4045",
-      "E-Mail": "kool.siyanbola@gmail.com"
-  };
-  
-var FormattedContact=  HTMLcontactGeneric.replace("%contact%",contact_info);
+var FormattedContact=  HTMLcontactGeneric.replace("%contact%", bio);
 $("#header").append(formattedName, formattedRole);
 $("#main").append(FormattedContact);
