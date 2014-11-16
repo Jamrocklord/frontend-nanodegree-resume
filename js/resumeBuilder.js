@@ -15,14 +15,15 @@ var bio ={
   "role": role,
   "skills": skills,
   "welcome_message": "Welcome, thank you for viewing this web page. This web page shows my resume.",
-  "bio_image": "images/Profile_Picture.jpg",
-  "contact_info": {
+  "bio_image": "images/Profile_Picture.jpg"
+};
+var contact_info= {
       "Address": "226 Creek Path Ave. Oakville, ON, Canada",
       "Postal Code": "L6L-6T5",
       "Phone_number": "(416)371-4045",
       "email": "kool.siyanbola@gmail.com",
       "github": "JamrockLord"
-    }
+      
   };
   var education= {
     "Elementary school": "Liberty Acadamy At The Proiry",  
@@ -30,10 +31,10 @@ var bio ={
       
 };
   
-var Formattedmobile= HTMLmobile.replace("%data%",bio[contact_info.Phone_number]);
-var Formattedemail= HTMLemail.replace("%data%",bio[contact_info.email]);
-var FormattedContact=  HTMLcontactGeneric.replace("%contact%",bio[contact_info.Address]);
-var Formattedgithub= HTMLgithub.replace("%data%",bio.github);
+var Formattedmobile= HTMLmobile.replace("%data%",contact_info.Phone_number);
+var Formattedemail= HTMLemail.replace("%data%",contact_info.email);
+var FormattedContact=  HTMLcontactGeneric.replace("%contact%",contact_info.Address);
+var Formattedgithub= HTMLgithub.replace("%data%", contact_info.github);
 var Formattedage= bio.age;
 $("#header").append(Formattedmobile);
 $("#header").append(Formattedemail);
