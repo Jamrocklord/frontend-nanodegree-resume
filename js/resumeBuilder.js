@@ -61,14 +61,14 @@ var FormattedContact=  HTMLcontactGeneric.replace("%contact%",contact_info.Addre
 var Formattedgithub= HTMLgithub.replace("%data%", contact_info.github);
 var Formattedage= bio.age;
 var Formatttebioimage= HTMLbioPic.replace("%data%",bio.bio_image);
-var formattedGeneric = HTMLcontactGeneric.replace("%data%", Formattedmobile + Formattedemail + Formattedgithub);
-
+var formattedGeneric= HTMLcontactGeneric.replace("%data%", Formattedmobile + Formattedemail + Formattedgithub);
+var FormattedWelcomeMsg= HTMLWelcomeMsg.replace("%data%", bio.welcome_message);  
 
 
 $("#header").prepend(formattedName, formattedRole);
 $("#topContacts").append(formattedGeneric);
-$("#main").prepend(Formatttebioimage);
-
+$("#header").prepend(Formatttebioimage);
+$("#header").append(FormattedWelcomeMsg);
 
 
 
