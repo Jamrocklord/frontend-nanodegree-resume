@@ -16,8 +16,7 @@ var bio ={
    "bio_image": "images/Profile_Picture.jpg"
 };
 var contact_info= {
-      "Address": "226 Creek Path Ave. Oakville, ON, Canada",
-      "Postal Code": "L6L-6T5",
+      "Address": "226 Creek Path Ave. Oakville, L6L-6T5, ON, Canada",
       "Phone_number": "(416) 371-4045",
       "email": "kool.siyanbola@gmail.com",
       "github": "JamrockLord"
@@ -42,7 +41,9 @@ var contact_info= {
   };
     var work= {
       "job_one": "Professional Druming",
-      "job_ two": "Technician for handheld devices"
+      "date_one": "2004 - present",
+      "job_ two": "Technician for handheld devices",
+      "date_two": "2007 - present"
   };
   
   var projects= {
@@ -60,17 +61,19 @@ var FormattedContact=  HTMLcontactGeneric.replace("%contact%",contact_info.Addre
 var Formattedgithub= HTMLgithub.replace("%data%", contact_info.github);
 var Formattedage= bio.age;
 var Formatttebioimage= HTMLbioPic.replace("%data%",bio.bio_image);
-var formattedGeneric= HTMLcontactGeneric.replace("%data%", Formattedmobile + Formattedemail + Formattedgithub);
-var FormattedWelcomeMsg= HTMLWelcomeMsg.replace("%data%", bio.welcome_message);  
+var Formattedlocation= HTMLlocation.replace("%data%",contact_info.Address);
+var formattedGeneric= HTMLcontactGeneric.replace("%data%",Formattedmobile + Formattedemail + Formattedgithub);
+var FormattedWelcomeMsg= HTMLWelcomeMsg.replace("%data%", bio.welcome_message);
+var Formmattedwork= 
 //var Formattededucation= HTMLeducation.replace("%data%", education.schools['city']);
 
 $("#header").prepend(formattedName, formattedRole);
-$("#letsConnect").append(formattedGeneric);
 $("#header").prepend(Formatttebioimage);
 $("#header").append(FormattedWelcomeMsg);
 
+$("#mapDiv").append(Formattedlocation);
 
-
+$("#letsConnect").append(formattedGeneric);
 
 
 //Old code 
