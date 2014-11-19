@@ -1,10 +1,7 @@
-//$("#main").append("Kolade Siyanbola");
 
 var name= "Kolade Siyanbola";
-var formattedName= HTMLheaderName.replace("%data%",name);
-
 var role= "Student";
-var formattedRole= HTMLheaderRole.replace("%data%",role);
+
 
 
 var skills= ["Skills: Programming in Javascript, Python, Pascal and ADB. \n\
@@ -49,12 +46,14 @@ var contact_info= {
   };
   
   var projects= {
-      "Title": "",
-      "Employer": "",
-      "Date": "",
-      "Discription": ""
+      "Title": "Resume builder",
+      "Employer": "Udacity",
+      "Date": "November 1, 2014",
+      "Discription": "builds a resume for anyone"
   };
   
+ var formattedName= HTMLheaderName.replace("%data%",name);
+ var formattedRole= HTMLheaderRole.replace("%data%",role);
 var Formattedmobile= HTMLmobile.replace("%data%",contact_info.Phone_number);
 var Formattedemail= HTMLemail.replace("%data%",contact_info.email);
 var FormattedContact=  HTMLcontactGeneric.replace("%contact%",contact_info.Address);
@@ -63,24 +62,25 @@ var Formattedage= bio.age;
 var Formatttebioimage= HTMLbioPic.replace("%data%",bio.bio_image);
 var formattedGeneric= HTMLcontactGeneric.replace("%data%", Formattedmobile + Formattedemail + Formattedgithub);
 var FormattedWelcomeMsg= HTMLWelcomeMsg.replace("%data%", bio.welcome_message);  
-
+//var Formattededucation= HTMLeducation.replace("%data%", education.schools['city']);
 
 $("#header").prepend(formattedName, formattedRole);
-$("#topContacts").append(formattedGeneric);
+$("#letsConnect").append(formattedGeneric);
 $("#header").prepend(Formatttebioimage);
 $("#header").append(FormattedWelcomeMsg);
 
 
 
 
-//var Formattedage= bio.age;
 
+//Old code 
 /*
+ var Formattedage= bio.age;
 >>>>>>> origin/master
 $("#header").append(Formattedmobile);
 $("#header").append(Formattedemail);
 $("#main").append(FormattedContact);
 $("#header").prepend(Formattedimage);
 $("#header").append(Formattedgithub);
-
+$("#main").append("Kolade Siyanbola");
 */
