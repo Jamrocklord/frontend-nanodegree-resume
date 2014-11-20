@@ -71,7 +71,7 @@ $("#header").prepend(formattedName, formattedRole);
 $("#header").prepend(Formatttebioimage);
 $("#header").append(FormattedWelcomeMsg);
 
-$("#mapDiv").append(Formattedlocation);
+//$("#mapDiv").append(Formattedlocation);
 
 $("#letsConnect").append(formattedGeneric);
 
