@@ -50,7 +50,7 @@ var contact_info= {
       "Title": "Resume builder",
       "Employer": "Udacity",
       "Date": "November 1, 2014",
-      "Discription": "builds a resume for anyone"
+      "Discription": "build a resume for anyone"
   };
   
  var formattedName= HTMLheaderName.replace("%data%",name);
@@ -87,3 +87,8 @@ $("#header").prepend(Formattedimage);
 $("#header").append(Formattedgithub);
 $("#main").append("Kolade Siyanbola");
 */
+/* To Do List 
+ * edit IF statment - 
+ * display all objects to the page 
+ * 
+ */
