@@ -62,9 +62,9 @@ var Formattedgithub= HTMLgithub.replace("%data%", contact_info.github);
 var Formattedage= bio.age;
 var Formatttebioimage= HTMLbioPic.replace("%data%",bio.bio_image);
 var Formattedlocation= HTMLlocation.replace("%data%",contact_info.Address);
-var formattedGeneric= HTMLcontactGeneric.replace("%data%",Formattedmobile + Formattedemail + Formattedgithub);
+var formattedGeneric= HTMLcontactGeneric.replace("%data%",Formattedlocation + Formattedmobile + Formattedemail + Formattedgithub);
 var FormattedWelcomeMsg= HTMLWelcomeMsg.replace("%data%", bio.welcome_message);
-var Formmattedwork= 
+//var Formmattedwork= 
 //var Formattededucation= HTMLeducation.replace("%data%", education.schools['city']);
 
 $("#header").prepend(formattedName, formattedRole);
