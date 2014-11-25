@@ -54,9 +54,32 @@ var contact_info= {
       "Date": "November 1, 2014",
       "Discription": "build a resume for anyone"
   };
-  
-  
-      
+  /*
+  if(bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+    var formattedSkill= HTMLskills.replace("%data%",bio.skills[0]);
+    $("#skills").appned(formattedSkill);
+    HTMLskills.replace("%data%",bio.skills[1]);
+    $("#skills").appned(formattedSkill);
+    HTMLskills.replace("%data%",bio.skills[2]);
+    $("#skills").appned(formattedSkill);
+    HTMLskills.replace("%data%",bio.skills[3]);
+
+};
+    */ 
+   
+   for (job in work.job){
+$("#workExperience").append(HTMLworkStart);
+
+var FormattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[jobs].employer);
+
+var FormattedTitle= HTMLworkTitle.replace("%data%", work.jobs[job].title);
+
+var FormattedEmployerTitle= formattedEmployer + formattedTitle;
+
+$(".work-entry:last").append(formattedEmployerTitle);
+
+}
   
  var formattedName= HTMLheaderName.replace("%data%",name);
  var formattedRole= HTMLheaderRole.replace("%data%",role);
