@@ -4,8 +4,10 @@ var role= "Student";
 
 
 
-var skills= ["Skills: Programming in Javascript, Python, Pascal and ADB. \n\
-also I am a technician able to fix computers and hand held devices. I am also a big car lover"];
+var skills= [
+    ["Programming in Javascript, Python, Pascal and ADB."],
+    ["also I am a technician able to fix computers and hand held devices."],
+    ["I am also a big car lover."]];
  
 var bio ={
   "name": name,
@@ -53,6 +55,9 @@ var contact_info= {
       "Discription": "build a resume for anyone"
   };
   
+  
+      
+  
  var formattedName= HTMLheaderName.replace("%data%",name);
  var formattedRole= HTMLheaderRole.replace("%data%",role);
 var Formattedmobile= HTMLmobile.replace("%data%",contact_info.Phone_number);
@@ -89,6 +94,7 @@ $("#main").append("Kolade Siyanbola");
 */
 /* To Do List 
  * edit IF statment - 
+ * code in functions into the objects 
  * display all objects to the page 
- * 
+ * '#' will be replaced with the url 
  */
