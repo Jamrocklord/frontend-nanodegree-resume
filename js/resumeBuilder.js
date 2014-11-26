@@ -17,15 +17,17 @@ var bio ={
   "welcome_message": "Welcome, thank you for viewing this web page. This web page shows my resume.",
    "bio_image": "images/Profile_Picture.jpg"
 };
+
 var contact_info= {
       "Address": "226 Creek Path Ave. Oakville, L6L-6T5, ON, Canada",
       "Phone_number": "(416) 371-4045",
       "email": "kool.siyanbola@gmail.com",
       "github": "JamrockLord"
       };
+      
   var education= {
-      "Schools": [
-          {
+            "Schools": [
+                          {
     "City":"Kingston, Jamaica",
     "Elementary_school": "Liberty Acadamy At The Proiry",
     "High_school": "St. George's College",
@@ -37,23 +39,42 @@ var contact_info= {
      "High_school_two": "St. Thomas Aquinas Catholic Secondary School",
      "Deploma":"High School Deploma",
      "Subjects": "Math, History, English, Religous Education, Computer Science",
-     "Oniline_courses":"Udacity Javasript basics course"
+     "Oniline_courses":"Udacity Javasript basics course",
+     "URL": "https://www.udacity.com/course/ud804"
     }
       ]
   };
-    var work= {
-      "job_one": "Professional Druming",
-      "date_one": "2004 - present",
-      "job_ two": "Technician for handheld devices",
-      "date_two": "2007 - present"
-  };
   
-  var projects= {
-      "Title": "Resume builder",
-      "Employer": "Udacity",
-      "Date": "November 1, 2014",
-      "Discription": "build a resume for anyone"
-  };
+  var work = {
+         "jobs": [
+                    {
+            "employer":"Nigerian High Commission",
+            "title":"Professional Druming",
+            "Position":"senior drumming member",
+            "dates":"2004 - present",
+            "Location":"",
+            "description":"I have played for the Nigerian High Commission drumming group for many years and is a core member of the group."
+        },
+        {
+            "employer":"Best Buy",
+            "title":"Geek Squad",
+            "Position":"",
+            "dates":"2007 - present",
+            "Location":"",
+            "description":"I deal with all the of best buy's technical support"
+        }
+    ]
+};
+   
+  var projects = {
+        "projects": [
+                        {
+            "title":"Udacity Resume Project",
+            "dates":"2014",
+            "description":"Make a resume that displays my name, age, work experience, education and personal information."
+        }
+    ]
+};
   /*
   if(bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
@@ -68,19 +89,6 @@ var contact_info= {
 };
     */ 
    
-   for (job in work.job){
-$("#workExperience").append(HTMLworkStart);
-
-var FormattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[jobs].employer);
-
-var FormattedTitle= HTMLworkTitle.replace("%data%", work.jobs[job].title);
-
-var FormattedEmployerTitle= formattedEmployer + formattedTitle;
-
-$(".work-entry:last").append(formattedEmployerTitle);
-
-}
-  
  var formattedName= HTMLheaderName.replace("%data%",name);
  var formattedRole= HTMLheaderRole.replace("%data%",role);
 var Formattedmobile= HTMLmobile.replace("%data%",contact_info.Phone_number);
@@ -99,22 +107,18 @@ $("#header").prepend(formattedName, formattedRole);
 $("#header").prepend(Formatttebioimage);
 $("#header").append(FormattedWelcomeMsg);
 
+ for (jobs in work){
+    $("#workExperience").append(HTMLworkStart);
+    var FormattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[jobs].employer);
+    var FormattedTitle= HTMLworkTitle.replace("%data%", work.jobs[jobs].title);
+    var FormattedEmployerTitle= FormattedEmployer + FormattedTitle;
+    $(".work-entry:last").append(FormattedEmployerTitle);
+   };
 //$("#mapDiv").append(Formattedlocation);
 
 $("#letsConnect").append(formattedGeneric);
 
 
-//Old code 
-/*
- var Formattedage= bio.age;
->>>>>>> origin/master
-$("#header").append(Formattedmobile);
-$("#header").append(Formattedemail);
-$("#main").append(FormattedContact);
-$("#header").prepend(Formattedimage);
-$("#header").append(Formattedgithub);
-$("#main").append("Kolade Siyanbola");
-*/
 /* To Do List 
  * edit IF statment - 
  * code in functions into the objects 
