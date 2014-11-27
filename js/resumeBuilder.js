@@ -51,16 +51,16 @@ var contact_info= {
             "employer":"Nigerian High Commission",
             "title":"Professional Druming",
             "Position":"senior drumming member",
-            "dates":"2004 - present",
-            "Location":"",
+            "dates":"2004 - 2014",
+            "Location":" Waterloo Rd Kingston Jamaica",
             "description":"I have played for the Nigerian High Commission drumming group for many years and is a core member of the group."
         },
         {
             "employer":"Best Buy",
             "title":"Geek Squad",
-            "Position":"",
+            "Position":"Handheld device support",
             "dates":"2007 - present",
-            "Location":"",
+            "Location":"2500 Winston Park Dr.Unit A Oakville, ON L6H 7E5",
             "description":"I deal with all the of best buy's technical support"
         }
     ]
@@ -87,33 +87,47 @@ var contact_info= {
     HTMLskills.replace("%data%",bio.skills[3]);
 
 };
-    */ 
-   
- var formattedName= HTMLheaderName.replace("%data%",name);
- var formattedRole= HTMLheaderRole.replace("%data%",role);
+    */
+
+var formattedName= HTMLheaderName.replace("%data%",name);
+var formattedRole= HTMLheaderRole.replace("%data%",role);
 var Formattedmobile= HTMLmobile.replace("%data%",contact_info.Phone_number);
 var Formattedemail= HTMLemail.replace("%data%",contact_info.email);
 var FormattedContact=  HTMLcontactGeneric.replace("%contact%",contact_info.Address);
 var Formattedgithub= HTMLgithub.replace("%data%", contact_info.github);
 var Formattedage= bio.age;
 var Formatttebioimage= HTMLbioPic.replace("%data%",bio.bio_image);
-var Formattedlocation= HTMLlocation.replace("%data%",contact_info.Address);
-var formattedGeneric= HTMLcontactGeneric.replace("%data%",Formattedlocation + Formattedmobile + Formattedemail + Formattedgithub);
+var FormattedAddresslocation= HTMLlocation.replace("%data%",contact_info.Address);
+var formattedGeneric= HTMLcontactGeneric.replace("%data%",FormattedAddresslocation + Formattedmobile + Formattedemail + Formattedgithub);
 var FormattedWelcomeMsg= HTMLWelcomeMsg.replace("%data%", bio.welcome_message);
-//var Formmattedwork= 
-//var Formattededucation= HTMLeducation.replace("%data%", education.schools['city']);
+
 
 $("#header").prepend(formattedName, formattedRole);
 $("#header").prepend(Formatttebioimage);
 $("#header").append(FormattedWelcomeMsg);
 
- for (jobs in work){
+work.display= function () {
     $("#workExperience").append(HTMLworkStart);
-    var FormattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[jobs].employer);
-    var FormattedTitle= HTMLworkTitle.replace("%data%", work.jobs[jobs].title);
-    var FormattedEmployerTitle= FormattedEmployer + FormattedTitle;
-    $(".work-entry:last").append(FormattedEmployerTitle);
-   };
+ for (var job= 0; job < work.jobs.length; job++) {
+
+    var FormattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+        $(".work-entry:last").append(FormattedEmployer);
+
+    var FormattedTitle= HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        $(".work-entry:last").append(FormattedTitle);
+    
+    var FormattedDates= HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        $(".work-entry:last").append(FormattedDates);
+
+    var FormattedLocation= HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        $(".work-entry:last").append(FormattedLocation);
+        
+    var FormattedDescription= HTMLworkDescription.replace("%data%", work.jobs[job].description);
+        $(".work-entry:last").append(FormattedDescription);
+        
+    }
+};
+
 //$("#mapDiv").append(Formattedlocation);
 
 $("#letsConnect").append(formattedGeneric);
