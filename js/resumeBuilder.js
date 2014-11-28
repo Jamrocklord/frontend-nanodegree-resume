@@ -67,11 +67,12 @@ var contact_info= {
 };
    
   var projects = {
-        "projects": [
+        "project": [
                         {
             "title":"Udacity Resume Project",
             "dates":"2014",
-            "description":"Make a resume that displays my name, age, work experience, education and personal information."
+            "description":"Make a resume that displays my name, age, work experience, education and personal information.",
+            "image": ""
         }
     ]
 };
@@ -98,7 +99,7 @@ var Formattedgithub= HTMLgithub.replace("%data%", contact_info.github);
 var Formattedage= bio.age;
 var Formatttebioimage= HTMLbioPic.replace("%data%",bio.bio_image);
 var FormattedAddresslocation= HTMLlocation.replace("%data%",contact_info.Address);
-var formattedGeneric= HTMLcontactGeneric.replace("%data%",FormattedAddresslocation + Formattedmobile + Formattedemail + Formattedgithub);
+var formattedGeneric= HTMLcontactGeneric.replace("%data%",FormattedAddresslocation + Formattedemail  + Formattedmobile + Formattedgithub);
 var FormattedWelcomeMsg= HTMLWelcomeMsg.replace("%data%", bio.welcome_message);
 
 
@@ -108,30 +109,61 @@ $("#header").append(FormattedWelcomeMsg);
 
 work.display= function () {
     $("#workExperience").append(HTMLworkStart);
- for (var job= 0; job < work.jobs.length; job++) {
+        for (var job= 0; job < work.jobs.length; job++) {
 
-    var FormattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-        $(".work-entry:last").append(FormattedEmployer);
+            var FormattedworkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+                $(".work-entry:last").append(FormattedworkEmployer);
 
-    var FormattedTitle= HTMLworkTitle.replace("%data%", work.jobs[job].title);
-        $(".work-entry:last").append(FormattedTitle);
+            var FormattedworkTitle= HTMLworkTitle.replace("%data%", work.jobs[job].title);
+                 $(".work-entry:last").append(FormattedworkTitle);
     
-    var FormattedDates= HTMLworkDates.replace("%data%", work.jobs[job].dates);
-        $(".work-entry:last").append(FormattedDates);
+            var FormattedworkDates= HTMLworkDates.replace("%data%", work.jobs[job].dates);
+                 $(".work-entry:last").append(FormattedworkDates);
 
-    var FormattedLocation= HTMLworkLocation.replace("%data%", work.jobs[job].location);
-        $(".work-entry:last").append(FormattedLocation);
+            var FormattedworkLocation= HTMLworkLocation.replace("%data%", work.jobs[job].location);
+                 $(".work-entry:last").append(FormattedworkLocation);
         
-    var FormattedDescription= HTMLworkDescription.replace("%data%", work.jobs[job].description);
-        $(".work-entry:last").append(FormattedDescription);
+            var FormattedworkDescription= HTMLworkDescription.replace("%data%", work.jobs[job].description);
+                 $(".work-entry:last").append(FormattedworkDescription);
         
     }
 };
 
+work.display();
+
+projects.display= function(){
+    $("#projects").append(HTMLprojectStart);  
+        for (var pro= 0; pro < projects.project.length; pro++){
+        
+            var FormattedprojectTitle= HTMLprojectTitle.replace("%data%", projects.project[pro].title);
+                $(".project-entry:last").append(FormattedprojectTitle);
+            
+            var FormattedprojectDates= HTMLprojectDates.replace("%data%", projects.project[pro].dates); 
+                $(".project-entry:last").append(FormattedprojectDates);
+            
+            var FormattedprojectDescription= HTMLprojectDescription.replace("%data%", projects.project[pro].description); 
+                $(".project-entry:last").append(FormattedprojectDescription);
+            
+            var FormattedprojectImage= HTMLprojectImage.replace("%data%", projects.project[pro].image);
+                $(".project-entry:last").append(FormattedprojectImage);
+            
+    }
+};
+projects.display();
 //$("#mapDiv").append(Formattedlocation);
 
 $("#letsConnect").append(formattedGeneric);
 
+function inName(name) {
+name = name.trim().split(" ");
+console.log(name); 
+name[1]= name[1].toUpperCase();
+name[0]= name[0].slice(0.1).toUpperCase() + name[0].slice(1).toLowerCase();
+
+return name[0] +" "+ name[1];
+}
+
+$("#main").append(internationalizeButton);
 
 /* To Do List 
  * edit IF statment - 
