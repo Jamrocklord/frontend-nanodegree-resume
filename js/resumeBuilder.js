@@ -28,22 +28,22 @@ var contact_info= {
   var education= {
             "Schools": [
                           {
-    "City_one":"Kingston, Jamaica",
-    "Elementary_school": "Liberty Acadamy At The Proiry",
-    "Date_one": "1999 - 2009",
+    "City":"Kingston, Jamaica",
     "High_school": "St. George's College",
-    "Date_two": "2009 - 2014",
-    "Deploma_one":"High School Deploma",
-    "Subjects_two": "Math, History, Literature, English, Visual Arts, Computer Science, Religous Education"
+    "School_URL":"http://stgc.org/",
+    "Date": "2009 - 2014",
+    "Deploma":"High School Deploma",
+    "Subjects": "Math, History, Literature, English, Visual Arts, Computer Science, Religous Education"
     },
     {
-     "City_one": "Oakville, Ontario, Canada",
-     "High_school_two": "St. Thomas Aquinas Catholic Secondary School",
-     "Date_three": "2014 - 2016",
-     "Deploma_two":"High School Deploma",
-     "Subjects_two": "Math, History, English, Religous Education, Computer Science",
+     "City": "Oakville, Ontario, Canada",
+     "High_school": "St. Thomas Aquinas Catholic Secondary School",
+     "School_URL":"http://sta.hcdsb.org/",
+     "Date": "2014 - 2016",
+     "Deploma":"High School Deploma",
+     "Subjects": "Math, History, English, Religous Education, Computer Science",
      "Oniline_courses":"Udacity Javasript basics course",
-     "URL": "https://www.udacity.com/course/ud804"
+     "online_URL": "https://www.udacity.com/course/ud804"
     }
       ]
   };
@@ -73,6 +73,7 @@ var contact_info= {
         "project": [
                         {
             "title":"Udacity Resume Project",
+            "project_URL":"https://www.udacity.com/course/ud804",
             "dates":"2014",
             "description":"Make a resume that displays my name, age, work experience, education and personal information.",
             "image": ""
@@ -139,6 +140,8 @@ projects.display= function(){
         for (var pro= 0; pro < projects.project.length; pro++){
         
             var FormattedprojectTitle= HTMLprojectTitle.replace("%data%", projects.project[pro].title);
+            
+            var FormattedprojectURL= FormattedprojectTitle.replace("#", projects.project[pro].project_URL);
                 $(".project-entry:last").append(FormattedprojectTitle);
             
             var FormattedprojectDates= HTMLprojectDates.replace("%data%", projects.project[pro].dates); 
@@ -157,17 +160,23 @@ projects.display();
 education.display= function(){
     $("#education").append(HTMLschoolStart);
         for(var edu= 0; edu < education.Schools.length; edu++){
-            
-            var FormattededucationName= HTMLschoolName.replace("%data%", education.Schools[edu].Elementary_school + education.School[edu].High_school);
-                $(".education-entry:last").append(FormattededucationName);
+                 
+            var FormattededucationName= HTMLschoolName.replace("%data%", education.Schools[edu].High_school);
+                
+            var FormattededucationURL= FormattededucationName.replace("#", education.Schools[edu].School_URL);
+                $(".education-entry:last").append(FormattededucationURL);
+                
+            var FormattededucationDegree= HTMLschoolDegree.replace("%data%", education.Schools[edu].Deploma);
+                $(".education-entry:last").append(FormattededucationDegree);
+                
+            var FormattededucationDate= HTMLschoolDates.replace("%data%", education.Schools[edu].Date);
+                $(".education-entry:last").append(FormattededucationDate);
                 
             var FormattededucationLocation= HTMLschoolLocation.replace("%data%", education.Schools[edu].City);
                 $(".education-entry:last").append(FormattededucationLocation);
-                
-            var FormatededucationDates= HTMLschoolDates.replace("%data%", education.Schools[edu].dates);
-                $(".education-entry:last").append(FormattededucationDates);
+               
             
-            //var FormatededucationDates= HTMLschoolDates.replace("%data%", education.schools[edu].dates);
+            
         }
 };
 education.display();
