@@ -28,17 +28,20 @@ var contact_info= {
   var education= {
             "Schools": [
                           {
-    "City":"Kingston, Jamaica",
+    "City_one":"Kingston, Jamaica",
     "Elementary_school": "Liberty Acadamy At The Proiry",
+    "Date_one": "1999 - 2009",
     "High_school": "St. George's College",
-    "Deploma":"High School Deploma",
-    "Subjects": "Math, History, Literature, English, Visual Arts, Computer Science, Religous Education"
+    "Date_two": "2009 - 2014",
+    "Deploma_one":"High School Deploma",
+    "Subjects_two": "Math, History, Literature, English, Visual Arts, Computer Science, Religous Education"
     },
     {
-     "City": "Oakville, Ontario, Canada",
+     "City_one": "Oakville, Ontario, Canada",
      "High_school_two": "St. Thomas Aquinas Catholic Secondary School",
-     "Deploma":"High School Deploma",
-     "Subjects": "Math, History, English, Religous Education, Computer Science",
+     "Date_three": "2014 - 2016",
+     "Deploma_two":"High School Deploma",
+     "Subjects_two": "Math, History, English, Religous Education, Computer Science",
      "Oniline_courses":"Udacity Javasript basics course",
      "URL": "https://www.udacity.com/course/ud804"
     }
@@ -150,6 +153,24 @@ projects.display= function(){
     }
 };
 projects.display();
+
+education.display= function(){
+    $("#education").append(HTMLschoolStart);
+        for(var edu= 0; edu < education.Schools.length; edu++){
+            
+            var FormattededucationName= HTMLschoolName.replace("%data%", education.Schools[edu].Elementary_school + education.School[edu].High_school);
+                $(".education-entry:last").append(FormattededucationName);
+                
+            var FormattededucationLocation= HTMLschoolLocation.replace("%data%", education.Schools[edu].City);
+                $(".education-entry:last").append(FormattededucationLocation);
+                
+            var FormatededucationDates= HTMLschoolDates.replace("%data%", education.Schools[edu].dates);
+                $(".education-entry:last").append(FormattededucationDates);
+            
+            //var FormatededucationDates= HTMLschoolDates.replace("%data%", education.schools[edu].dates);
+        }
+};
+education.display();
 //$("#mapDiv").append(Formattedlocation);
 
 $("#letsConnect").append(formattedGeneric);
