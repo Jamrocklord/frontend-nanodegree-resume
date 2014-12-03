@@ -127,18 +127,18 @@ function initializeMap() {
     var locations = [];
 
     // adds the single location property from bio to the locations array
-    locations.push(bio.contacts.location);
+    locations.push(contact_info.Address);
     
     // iterates through school locations and appends each location to
     // the locations array
-    for (var school in education.schools) {
-      locations.push(education.schools[school].location);
+    for (var school in education.Schools) {
+      locations.push(education.Schools[school].City);
     }
 
     // iterates through work locations and appends each location to
     // the locations array
     for (var job in work.jobs) {
-      locations.push(work.jobs[job].location);
+      locations.push(work.jobs[job].Location);
     }
 
     return locations;
@@ -173,7 +173,8 @@ function initializeMap() {
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+
+      infowindow.open(map, marker);
     });
 
     // this is where the pin actually gets added to the map.
@@ -191,7 +192,7 @@ function initializeMap() {
   */
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      createMapMarker(results[0])
+      createMapMarker(results[0]);
     }
   }
 

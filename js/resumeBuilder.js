@@ -133,9 +133,6 @@ work.display= function () {
                  
             var FormattedworkDates= HTMLworkDates.replace("%data%", work.jobs[job].dates);
                  $(".work-entry:last").append(FormattedworkDates);
-
-            var FormattedworkLocation= HTMLworkLocation.replace("%data%", work.jobs[job].location);
-                 $(".work-entry:last").append(FormattedworkLocation);
         
             var FormattedworkDescription= HTMLworkDescription.replace("%data%", work.jobs[job].description);
                  $(".work-entry:last").append(FormattedworkDescription);
@@ -184,10 +181,10 @@ education.display= function(){
                 
             var FormattededucationLocation= HTMLschoolLocation.replace("%data%", education.Schools[edu].City);
                 $(".education-entry:last").append(FormattededucationLocation);
-         }
+         };
                 
     $("#education").append(HTMLonlineClasses);
-                
+        for (var web= 0; web < education.Online_courses.length; web++){        
             var FormattededucationOnlineTitle= HTMLonlineTitle.replace("%data%", education.Oniline_courses[edu].title);
                 $(".eduction-entry:last").append(FormattededucationOnlineTitle);
                 
@@ -201,11 +198,12 @@ education.display= function(){
             
             var FormattededucationOnlineURL= FormattededucationOnlineURLtitle.replace("#", education.Online_courses[edu].online_URL);
                 $(".eduction-entry:last").append(FormattededucationOnlineURL);
-        
+        }
 };
+
 education.display();
 
-//$("#mapDiv").append(Formattedlocation);
+
 
 $("#footerContacts").append(formattedGeneric);
 
@@ -216,13 +214,12 @@ name[1]= name[1].toUpperCase();
 name[0]= name[0].slice(0.1).toUpperCase() + name[0].slice(1).toLowerCase();
 
 return name[0] +" "+ name[1];
-}
-
+};
+$("#mapDiv").append(googleMap);
 $("#main").append(internationalizeButton);
 
-/* To Do List 
- * edit IF statment - 
- * code in functions into the objects 
- * display all objects to the page 
- * '#' will be replaced with the url 
- */
+ //To Do List 
+ //edit IF statment - 
+ // make map
+ //fix the internationalizer button 
+ // change the colour RGB 
