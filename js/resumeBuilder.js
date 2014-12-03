@@ -10,43 +10,50 @@ var skills= [
     ["I am also a big car lover."]];
  
 var bio ={
-  "name": name,
-  "age": 17,
-  "role": role,
-  "skills": skills,
-  "welcome_message": "Welcome, thank you for viewing this web page. This web page shows my resume.",
-   "bio_image": "images/Profile_Picture.jpg"
+        "name": name,
+        "age": 17,
+        "role": role,
+        "skills": skills,
+        "welcome_message": "Welcome, thank you for viewing this web page. This web page shows my resume.",
+        "bio_image": "images/Profile_Picture.jpg"
 };
 
 var contact_info= {
-      "Address": "226 Creek Path Ave. Oakville, L6L-6T5, ON, Canada",
-      "Phone_number": "(416) 371-4045",
-      "email": "kool.siyanbola@gmail.com",
-      "github": "JamrockLord"
+        "Address": "226 Creek Path Ave. Oakville, L6L-6T5, ON, Canada",
+        "Phone_number": "(416) 371-4045",
+        "email": "kool.siyanbola@gmail.com",
+        "github": "JamrockLord"
       };
       
   var education= {
             "Schools": [
                           {
-    "City":"Kingston, Jamaica",
-    "High_school": "St. George's College",
-    "School_URL":"http://stgc.org/",
-    "Date": "2009 - 2014",
-    "Deploma":"High School Deploma",
-    "Subjects": "Math, History, Literature, English, Visual Arts, Computer Science, Religous Education"
+        "City":"Kingston, Jamaica",
+        "High_school": "St. George's College",
+        "School_URL":"http://stgc.org/",
+        "Date": "2009 - 2014",
+        "Deploma":["High School Deploma"],
+        "Subjects": "Math, History, Literature, English, Visual Arts, Computer Science, Religous Education"
     },
     {
-     "City": "Oakville, Ontario, Canada",
-     "High_school": "St. Thomas Aquinas Catholic Secondary School",
-     "School_URL":"http://sta.hcdsb.org/",
-     "Date": "2014 - 2016",
-     "Deploma":"High School Deploma",
-     "Subjects": "Math, History, English, Religous Education, Computer Science",
-     "Oniline_courses":"Udacity Javasript basics course",
-     "online_URL": "https://www.udacity.com/course/ud804"
+        "City": "Oakville, Ontario, Canada",
+        "High_school": "St. Thomas Aquinas Catholic Secondary School",
+        "School_URL":"http://sta.hcdsb.org/",
+        "Date": "2014 - 2016",
+        "Deploma":["High School Deploma"],
+        "Subjects": "Math, History, English, Religous Education, Computer Science"
     }
-      ]
-  };
+    ],
+            "Oniline_courses":[
+                                {
+        "title":"Udacity Javasript basics course",
+	"school": "Udacity",
+	"dates": "2014",
+	"online_URL": "https://www.udacity.com/course/ud804" 
+    }
+    ]
+ };
+     
   
   var work = {
          "jobs": [
@@ -56,6 +63,7 @@ var contact_info= {
             "Position":"senior drumming member",
             "dates":"2004 - 2014",
             "Location":" Waterloo Rd Kingston Jamaica",
+            "job_URL": "http://www.nhckingston.org/",
             "description":"I have played for the Nigerian High Commission drumming group for many years and is a core member of the group."
         },
         {
@@ -64,6 +72,7 @@ var contact_info= {
             "Position":"Handheld device support",
             "dates":"2007 - present",
             "Location":"2500 Winston Park Dr.Unit A Oakville, ON L6H 7E5",
+            "job_URL": "http://www.bestbuy.ca/en-CA/category/geek-squad/22042a.aspx#support-pillar",
             "description":"I deal with all the of best buy's technical support"
         }
     ]
@@ -115,12 +124,13 @@ work.display= function () {
     $("#workExperience").append(HTMLworkStart);
         for (var job= 0; job < work.jobs.length; job++) {
 
-            var FormattedworkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-                $(".work-entry:last").append(FormattedworkEmployer);
-
-            var FormattedworkTitle= HTMLworkTitle.replace("%data%", work.jobs[job].title);
-                 $(".work-entry:last").append(FormattedworkTitle);
-    
+            var FormattedworkEmployer= HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+            
+            var FormattedworkTitle= HTMLworkTitle.replace("%data%", work.jobs[job].title);  
+            
+            var FormattedworkURL= FormattedworkEmployer.replace("#", work.jobs[job].job_URL);
+                $(".work-entry:last").append(FormattedworkURL + FormattedworkTitle);
+                 
             var FormattedworkDates= HTMLworkDates.replace("%data%", work.jobs[job].dates);
                  $(".work-entry:last").append(FormattedworkDates);
 
@@ -142,7 +152,7 @@ projects.display= function(){
             var FormattedprojectTitle= HTMLprojectTitle.replace("%data%", projects.project[pro].title);
             
             var FormattedprojectURL= FormattedprojectTitle.replace("#", projects.project[pro].project_URL);
-                $(".project-entry:last").append(FormattedprojectTitle);
+                $(".project-entry:last").append(FormattedprojectURL);
             
             var FormattedprojectDates= HTMLprojectDates.replace("%data%", projects.project[pro].dates); 
                 $(".project-entry:last").append(FormattedprojectDates);
@@ -174,15 +184,30 @@ education.display= function(){
                 
             var FormattededucationLocation= HTMLschoolLocation.replace("%data%", education.Schools[edu].City);
                 $(".education-entry:last").append(FormattededucationLocation);
-               
+         }
+                
+    $("#education").append(HTMLonlineClasses);
+                
+            var FormattededucationOnlineTitle= HTMLonlineTitle.replace("%data%", education.Oniline_courses[edu].title);
+                $(".eduction-entry:last").append(FormattededucationOnlineTitle);
+                
+            var FormattededucationOnlineSchool= HTMLonlineSchool.replace("%data%", education.Online_courses[edu].school);
+                $(".eduction-entry:last").append(FormattededucationOnlineSchool);
+                
+            var FormattededucationOnlineDates= HTMLonlineDates.replace("%data%", education.Online_courses[edu].dates);
+                $(".eduction-entry:last").append(FormattededucationOnlineDates);
             
+            var FormattededucationOnlineURLtitle= HTMLonlineURL.replace("%data%", education.Online_courses[edu].online_URL);
             
-        }
+            var FormattededucationOnlineURL= FormattededucationOnlineURLtitle.replace("#", education.Online_courses[edu].online_URL);
+                $(".eduction-entry:last").append(FormattededucationOnlineURL);
+        
 };
 education.display();
+
 //$("#mapDiv").append(Formattedlocation);
 
-$("#letsConnect").append(formattedGeneric);
+$("#footerContacts").append(formattedGeneric);
 
 function inName(name) {
 name = name.trim().split(" ");
