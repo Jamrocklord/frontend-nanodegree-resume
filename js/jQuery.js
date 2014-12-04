@@ -4683,7 +4683,7 @@ jQuery.event = {
           }
         }
       }
-    }
+    };
 
     // Call the postDispatch hook for the mapped type
     if ( special.postDispatch ) {

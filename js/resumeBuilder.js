@@ -14,7 +14,7 @@ var bio ={
         "age": 17,
         "role": role,
         "skills": skills,
-        "welcome_message": "Welcome, thank you for viewing this web page. This web page shows my resume.",
+        "welcome_message": "Welcome, thank you for visiting this webpage. If interested, please go ahead and contact me.",
         "bio_image": "images/Profile_Picture.jpg"
 };
 
@@ -28,21 +28,21 @@ var contact_info= {
   var education= {
             "Schools": [
                           {
-        "City":"Kingston, Jamaica",
+        "City":"St George's College North St Kingston, Jamaica",
         "High_school": "St. George's College",
         "School_URL":"http://stgc.org/",
         "Date": "2009 - 2014",
         "Deploma":["High School Deploma"]
     },
     {
-        "City": "Oakville, Ontario, Canada",
+        "City": "124 Dorval Dr Oakville, ON L6K 2W1, Canada",
         "High_school": "St. Thomas Aquinas Catholic Secondary School",
         "School_URL":"http://sta.hcdsb.org/",
         "Date": "2014 - 2016",
         "Deploma":["High School Deploma"]
     }
     ],
-            "Onilinecourses":[
+            "Onlinecourses":[
                                 {
         "title":"Udacity Javasript basics course",
 	"school": "Udacity",
@@ -60,7 +60,7 @@ var contact_info= {
             "title":"Professional Druming",
             "Position":"senior drumming member",
             "dates":"2004 - 2014",
-            "Location":" Waterloo Rd Kingston Jamaica",
+            "Location":" 5 Waterloo Road Kingston, Jamaica",
             "job_URL": "http://www.nhckingston.org/",
             "description":"I have played for the Nigerian High Commission drumming group for many years and is a core member of the group."
         },
@@ -82,25 +82,12 @@ var contact_info= {
             "title":"Udacity Resume Project",
             "project_URL":"https://www.udacity.com/course/ud804",
             "dates":"2014",
-            "description":"Make a resume that displays my name, age, work experience, education and personal information.",
+            "description":"Create a webpage that displays a pereson's name, work experience, work locations, projects and contact information.",
             "image": ""
         }
     ]
 };
-  /*
-  if(bio.skills.length > 0) {
-    $("#header").append(HTMLskillsStart);
-    var formattedSkill= HTMLskills.replace("%data%",bio.skills[0]);
-    $("#skills").appned(formattedSkill);
-    HTMLskills.replace("%data%",bio.skills[1]);
-    $("#skills").appned(formattedSkill);
-    HTMLskills.replace("%data%",bio.skills[2]);
-    $("#skills").appned(formattedSkill);
-    HTMLskills.replace("%data%",bio.skills[3]);
-
-};
-    */
-
+  
 var formattedName= HTMLheaderName.replace("%data%",name);
 var formattedRole= HTMLheaderRole.replace("%data%",role);
 var Formattedmobile= HTMLmobile.replace("%data%",contact_info.Phone_number);
@@ -184,35 +171,43 @@ education.display= function(){
                 $(".education-entry:last").append(FormattededucationLocation);
          };
                 
-    $("#education").append(HTMLonlineClasses);
-        for (var web in education.Onlinecourses){
-            if  (education.Onlinecourses.length > 0){  
+     $("#education").append(HTMLonlineClasses);
+        for (var web= 0; web < education.Onlinecourses.length; web++) {
+             
+            var FormattededucationOnlineTitle= HTMLonlineTitle.replace("%data%", education.Onlinecourses[web].title);
+                $(".education-entry:last").append(FormattededucationOnlineTitle);
                 
-            var FormattededucationOnlineTitle= HTMLonlineTitle.replace("%data%", education.Onlinecourses[edu].title);
-                $(".eduction-entry:last").append(FormattededucationOnlineTitle);
+            var FormattededucationOnlineSchool= HTMLonlineSchool.replace("%data%", education.Onlinecourses[web].school);
+                $(".education-entry:last").append(FormattededucationOnlineSchool);
                 
-            var FormattededucationOnlineSchool= HTMLonlineSchool.replace("%data%", education.Onlinecourses[edu].school);
-                $(".eduction-entry:last").append(FormattededucationOnlineSchool);
-                
-            var FormattededucationOnlineDates= HTMLonlineDates.replace("%data%", education.Onlinecourses[edu].dates);
-                $(".eduction-entry:last").append(FormattededucationOnlineDates);
+            var FormattededucationOnlineDates= HTMLonlineDates.replace("%data%", education.Onlinecourses[web].dates);
+                $(".education-entry:last").append(FormattededucationOnlineDates);
             
-            var FormattededucationOnlineURLtitle= HTMLonlineURL.replace("%data%", education.Onlinecourses[edu].online_URL);
+            var FormattededucationOnlineURLtitle= HTMLonlineURL.replace("%data%", education.Onlinecourses[web].online_URL);
             
-            var FormattededucationOnlineURL= FormattededucationOnlineURLtitle.replace("#", education.Onlinecourses[edu].online_URL);
-                $(".eduction-entry:last").append(FormattededucationOnlineURL);
-                $(".eduction-entry:last").append("<br>");
-            }
-        }
+            var FormattededucationOnlineURL= FormattededucationOnlineURLtitle.replace("#", education.Onlinecourses[web].online_URL);
+                $(".education-entry:last").append(FormattededucationOnlineURL);
+            
+            }  
 };
-
 education.display();
 
-
-
-$("#footerContacts").append(formattedGeneric);
-
-function inName(name) {
+/*
+skills.display= function(){
+  if(bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+    var formattedSkill= HTMLskills.replace("%data%",bio.skills[0]);
+    $("#skills").appned(formattedSkill);
+    HTMLskills.replace("%data%",bio.skills[1]);
+    $("#skills").appned(formattedSkill);
+    HTMLskills.replace("%data%",bio.skills[2]);
+    $("#skills").appned(formattedSkill);
+    HTMLskills.replace("%data%",bio.skills[3]);
+}
+};
+    
+  */ 
+function iName(name) {
 name = name.trim().split(" ");
 console.log(name); 
 name[1]= name[1].toUpperCase();
@@ -220,11 +215,11 @@ name[0]= name[0].slice(0.1).toUpperCase() + name[0].slice(1).toLowerCase();
 
 return name[0] +" "+ name[1];
 };
+
 $("#mapDiv").append(googleMap);
 $("#main").append(internationalizeButton);
-
+$("#footerContacts").append(formattedGeneric);
  //To Do List 
- //edit IF statment - 
- // make map
+
  //fix the internationalizer button 
  // change the colour RGB 
