@@ -32,19 +32,17 @@ var contact_info= {
         "High_school": "St. George's College",
         "School_URL":"http://stgc.org/",
         "Date": "2009 - 2014",
-        "Deploma":["High School Deploma"],
-        "Subjects": "Math, History, Literature, English, Visual Arts, Computer Science, Religous Education"
+        "Deploma":["High School Deploma"]
     },
     {
         "City": "Oakville, Ontario, Canada",
         "High_school": "St. Thomas Aquinas Catholic Secondary School",
         "School_URL":"http://sta.hcdsb.org/",
         "Date": "2014 - 2016",
-        "Deploma":["High School Deploma"],
-        "Subjects": "Math, History, English, Religous Education, Computer Science"
+        "Deploma":["High School Deploma"]
     }
     ],
-            "Oniline_courses":[
+            "Onilinecourses":[
                                 {
         "title":"Udacity Javasript basics course",
 	"school": "Udacity",
@@ -133,6 +131,9 @@ work.display= function () {
                  
             var FormattedworkDates= HTMLworkDates.replace("%data%", work.jobs[job].dates);
                  $(".work-entry:last").append(FormattedworkDates);
+                 
+            var FormattedworkLocation= HTMLworkLocation.replace("%data%", work.jobs[job].Location);
+                $(".work-entry:last").append(FormattedworkLocation);
         
             var FormattedworkDescription= HTMLworkDescription.replace("%data%", work.jobs[job].description);
                  $(".work-entry:last").append(FormattedworkDescription);
@@ -184,20 +185,24 @@ education.display= function(){
          };
                 
     $("#education").append(HTMLonlineClasses);
-        for (var web= 0; web < education.Online_courses.length; web++){        
-            var FormattededucationOnlineTitle= HTMLonlineTitle.replace("%data%", education.Oniline_courses[edu].title);
+        for (var web in education.Onlinecourses){
+            if  (education.Onlinecourses.length > 0){  
+                
+            var FormattededucationOnlineTitle= HTMLonlineTitle.replace("%data%", education.Onlinecourses[edu].title);
                 $(".eduction-entry:last").append(FormattededucationOnlineTitle);
                 
-            var FormattededucationOnlineSchool= HTMLonlineSchool.replace("%data%", education.Online_courses[edu].school);
+            var FormattededucationOnlineSchool= HTMLonlineSchool.replace("%data%", education.Onlinecourses[edu].school);
                 $(".eduction-entry:last").append(FormattededucationOnlineSchool);
                 
-            var FormattededucationOnlineDates= HTMLonlineDates.replace("%data%", education.Online_courses[edu].dates);
+            var FormattededucationOnlineDates= HTMLonlineDates.replace("%data%", education.Onlinecourses[edu].dates);
                 $(".eduction-entry:last").append(FormattededucationOnlineDates);
             
-            var FormattededucationOnlineURLtitle= HTMLonlineURL.replace("%data%", education.Online_courses[edu].online_URL);
+            var FormattededucationOnlineURLtitle= HTMLonlineURL.replace("%data%", education.Onlinecourses[edu].online_URL);
             
-            var FormattededucationOnlineURL= FormattededucationOnlineURLtitle.replace("#", education.Online_courses[edu].online_URL);
+            var FormattededucationOnlineURL= FormattededucationOnlineURLtitle.replace("#", education.Onlinecourses[edu].online_URL);
                 $(".eduction-entry:last").append(FormattededucationOnlineURL);
+                $(".eduction-entry:last").append("<br>");
+            }
         }
 };
 
